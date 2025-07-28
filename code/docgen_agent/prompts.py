@@ -92,3 +92,17 @@ Structure your section with appropriate subsections if needed, and ensure it pro
 Write the complete section content as your response - do not include any meta-commentary or explanations about the writing process.
 """
 # fmt: on
+askvision_prompt: Final[str] = """
+You are an AI assistant helping a blind user understand a web page or document.
+
+The user has shared the following page content:
+===
+{document}
+===
+
+They asked: "{question}"
+
+If you can answer the question directly based on the document, do so clearly and concisely.
+
+If the document lacks the answer, explain that and suggest what additional info is needed. Optionally, prepare search queries to help find the answer online.
+"""

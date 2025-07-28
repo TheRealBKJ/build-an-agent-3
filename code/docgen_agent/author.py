@@ -16,7 +16,16 @@ from .prompts import section_research_prompt, section_writing_prompt
 _LOGGER = logging.getLogger(__name__)
 _MAX_LLM_RETRIES = 3
 
-llm = ChatNVIDIA(model="meta/llama-3.3-70b-instruct", temperature=0)
+import os
+
+llm = ChatNVIDIA(
+    model="nvidia/llama-3.3-nemotron-super-49b-v1.5",
+    temperature=0,
+    base_url="https://integrate.api.nvidia.com/v1",
+    headers={"x-api-key": os.environ["NVIDIA_API_KEY"]}
+)
+
+
 llm_with_tools = llm.bind_tools([tools.search_tavily])
 
 

@@ -21,7 +21,16 @@ _MAX_LLM_RETRIES = 3
 _QUERIES_PER_SECTION = 5
 _THROTTLE_LLM_CALLS = os.getenv("THROTTLE_LLM_CALLS", "0")
 
-llm = ChatNVIDIA(model="meta/llama-3.3-70b-instruct", temperature=0)
+import os
+
+llm = ChatNVIDIA(
+    model="nvidia/llama-3.3-nemotron-super-49b-v1.5",
+    temperature=0,
+    base_url="https://integrate.api.nvidia.com/v1",
+    headers={"x-api-key": os.environ["NVIDIA_API_KEY"]}
+)
+
+
 
 
 class Report(BaseModel):
