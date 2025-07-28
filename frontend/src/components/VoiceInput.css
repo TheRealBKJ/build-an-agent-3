@@ -1,0 +1,169 @@
+/* Voice Input Styles */
+.voice-input {
+	width: 100%;
+}
+
+.voice-controls {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1rem;
+}
+
+.voice-btn {
+	padding: 1rem 2rem;
+	border: none;
+	border-radius: 8px;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	min-width: 200px;
+	justify-content: center;
+}
+
+.start-btn {
+	background: #28a745;
+	color: white;
+}
+
+.start-btn:hover {
+	background: #218838;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.stop-btn {
+	background: #dc3545;
+	color: white;
+}
+
+.stop-btn:hover {
+	background: #c82333;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* Listening Indicator */
+.listening-indicator {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	padding: 1rem;
+	background: #fff3cd;
+	border: 1px solid #ffeaa7;
+	border-radius: 8px;
+	margin-bottom: 1rem;
+	color: #856404;
+	font-weight: 600;
+}
+
+.pulse {
+	width: 20px;
+	height: 20px;
+	background: #dc3545;
+	border-radius: 50%;
+	animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(1.2);
+		opacity: 0.7;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+/* Transcript Display */
+.transcript-display {
+	background: #e3f2fd;
+	border: 1px solid #bbdefb;
+	border-radius: 8px;
+	padding: 1rem;
+	margin-top: 1rem;
+	color: #1565c0;
+	font-size: 0.95rem;
+	line-height: 1.5;
+}
+
+.transcript-display strong {
+	color: #0d47a1;
+}
+
+/* Not Supported Message */
+.not-supported {
+	background: #f8d7da;
+	border: 1px solid #f5c6cb;
+	border-radius: 8px;
+	padding: 1rem;
+	color: #721c24;
+	text-align: center;
+	font-size: 0.9rem;
+}
+
+/* Focus states for accessibility */
+.voice-btn:focus {
+	outline: 2px solid #667eea;
+	outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+	.listening-indicator {
+		background: white;
+		border: 2px solid #333;
+		color: #333;
+	}
+
+	.transcript-display {
+		background: white;
+		border: 2px solid #333;
+		color: #333;
+	}
+
+	.not-supported {
+		background: white;
+		border: 2px solid #dc3545;
+		color: #dc3545;
+	}
+
+	.pulse {
+		background: #dc3545;
+		border: 2px solid #333;
+	}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.pulse {
+		animation: none;
+	}
+
+	.voice-btn:hover {
+		transform: none;
+	}
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.voice-btn {
+		min-width: 150px;
+		padding: 0.75rem 1.5rem;
+		font-size: 0.9rem;
+	}
+
+	.listening-indicator {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+}
